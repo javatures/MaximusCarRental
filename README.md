@@ -7,3 +7,5 @@ To start React server, at cd rental-react:
     npx install
     yarn start
         will be on port 3000
+
+Maximus Car Rental is the future 
