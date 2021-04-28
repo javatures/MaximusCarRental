@@ -4,7 +4,7 @@ To start Spring server, at root:
 
 To start React server, at cd rental-react:
     download node
-    npx install
+    (cd into rental-react folder) npx install yarn
     yarn start
         will be on port 3000
 
