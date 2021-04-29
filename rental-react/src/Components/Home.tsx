@@ -15,6 +15,7 @@ const SigninForm: FC<{}> = (): JSX.Element => {
                 <input type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
                 <label htmlFor="username">Password</label>
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                <input type="submit" value="Log In" />
             </div>
         </form>
     )
