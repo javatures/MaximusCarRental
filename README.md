@@ -11,6 +11,7 @@ will be on port 8080
 - (cd into rental-react folder) 
 ```bash
 npx install yarn
+yarn install
 yarn start
 ```
 Will be on port 3000
