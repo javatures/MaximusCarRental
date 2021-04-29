@@ -19,25 +19,23 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class Car {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-  @Column
-  private String make;
+    @Column
+    private String make;
 
-  @Column
-  private String model;
+    @Column
+    private String model;
 
-  @Column
-  private String year;
+    @Column
+    private String year;
 
-  @Column
-  private String type; // i.e. luxury vehicle
-
-  /*
-  @ManyToOne
-  @JoinColumn
-  private Renter renterId;
-  */
+    @Column
+    private String type; // i.e. luxury vehicle
+    
+    @ManyToOne
+    @JoinColumn
+    private Renter renterId;
 }

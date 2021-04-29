@@ -42,8 +42,6 @@ public class Renter {
     @Column
     private String phoneString;
 
-    /*
-    @OneToMany(mappedBy = "renters")
+    @OneToMany(mappedBy = "renterId")
     private Set<Car> carsRented;
-    */
 }
