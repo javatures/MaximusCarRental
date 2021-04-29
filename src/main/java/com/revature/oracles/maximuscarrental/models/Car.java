@@ -35,7 +35,9 @@ public class Car {
   @Column
   private String type; // i.e. luxury vehicle
 
+  /*
   @ManyToOne
   @JoinColumn
   private Renter renterId;
+  */
 }

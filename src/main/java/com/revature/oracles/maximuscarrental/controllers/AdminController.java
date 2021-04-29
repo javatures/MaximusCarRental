@@ -15,32 +15,26 @@ import org.springframework.http.MediaType;
 import com.revature.oracles.maximuscarrental.repo.AdminRepo;
 import com.revature.oracles.maximuscarrental.models.Admin;
 
-
 @RestController
 @RequestMapping("admin")
 public class AdminController {
-
     @Autowired
     AdminRepo adminRepo;
 
     @GetMapping
-    public List<Admin> getAll(){
-        List<Admin> admins = StreamSupport.stream(adminRepo.findAll().spliterator(), false).collect(Collectors.toList());
+    public List<Admin> getAll() {
+        List<Admin> admins = StreamSupport.stream(adminRepo.findAll().spliterator(), false)
+                .collect(Collectors.toList());
         return admins;
-    } 
+    }
 
-    @GetMapping(name = "/{id}")
-    public Admin getAdmin(@PathVariable(name = "id") int id)
-    {
+    @GetMapping("/{id}")
+    public Admin getAdmin(@PathVariable int id) {
         return adminRepo.findById(id).get();
     }
 
-    
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Admin postAdmin(@RequestBody Admin admin)
-    {
+    public Admin postAdmin(@RequestBody Admin admin) {
         return adminRepo.save(admin);
     }
-
-  
 }

@@ -17,27 +17,24 @@ import com.revature.oracles.maximuscarrental.models.Renter;
 
 @RestController
 @RequestMapping("renter")
-public class RenterController 
-{
+public class RenterController {
     @Autowired
     RenterRepo renterRepo;
 
     @GetMapping
-    public List<Renter> getAll()
-    {
-        List<Renter> renters = StreamSupport.stream(renterRepo.findAll().spliterator(), false).collect(Collectors.toList());
+    public List<Renter> getAll() {
+        List<Renter> renters = StreamSupport.stream(renterRepo.findAll().spliterator(), false)
+                .collect(Collectors.toList());
         return renters;
     }
 
-    @GetMapping(name = "/{id}")
-    public Renter getRenter(@PathVariable(name = "id") int id)
-    {
+    @GetMapping("/{id}")
+    public Renter getRenter(@PathVariable(name = "id") int id) {
         return renterRepo.findById(id).get();
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Renter postRenter(@RequestBody Renter renter)
-    {
+    public Renter postRenter(@RequestBody Renter renter) {
         return renterRepo.save(renter);
     }
 }
