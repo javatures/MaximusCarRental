@@ -1,5 +1,7 @@
-import React, { FC, useState, useEffect} from 'react';
+import React, { FC } from 'react';
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Container';
 
 const RenterForm: FC<{}> = (): JSX.Element => {
     const [username, setUsername] = React.useState("");
@@ -12,7 +14,7 @@ const RenterForm: FC<{}> = (): JSX.Element => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        let newRenter = {username: username, password: password, fname: fname, lname: lname, email: email, phoneString: phoneString};
+        let newRenter = { username: username, password: password, fname: fname, lname: lname, email: email, phoneString: phoneString };
         let myJson = JSON.stringify(newRenter);
 
         var request = new XMLHttpRequest();
@@ -22,30 +24,42 @@ const RenterForm: FC<{}> = (): JSX.Element => {
         request.send(myJson);
     }
 
-    return(
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label htmlFor="username">Username</label>
-                <input type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
+    return (
+        <Form onSubmit={handleSubmit}>
+            <Row>
+                <Form.Group controlId="username">
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+                </Form.Group>
 
-                <label htmlFor="password">Password</label>
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                <Form.Group controlId="password">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                </Form.Group>
 
-                <label htmlFor="fname">First Name</label>
-                <input type="text" value={fname} onChange={(e) => setFname(e.target.value)}/>
+                <Form.Group controlId="fname">
+                    <Form.Label>First Name</Form.Label>
+                    <Form.Control type="text" value={fname} onChange={(e) => setFname(e.target.value)} />
+                </Form.Group>
 
-                <label htmlFor="lname">Last Name</label>
-                <input type="text" value={lname} onChange={(e) => setLname(e.target.value)}/>
+                <Form.Group controlId="lname">
+                    <Form.Label>Last Name</Form.Label>
+                    <Form.Control type="text" value={lname} onChange={(e) => setLname(e.target.value)} />
+                </Form.Group>
 
-                <label htmlFor="email">Email</label>
-                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                <Form.Group controlId="email">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                </Form.Group>
 
-                <label htmlFor="phone">Phone Number</label>
-                <input type="phone" value={phoneString} onChange={(e) => setPhoneString(e.target.value)}/>
+                <Form.Group controlId="phoneString">
+                    <Form.Label>Phone Number</Form.Label>
+                    <Form.Control type="phone" value={phoneString} onChange={(e) => setPhoneString(e.target.value)} />
+                </Form.Group>
 
-                <input className="btn btn-primary" type="submit" value="Create Account" />
-            </div>
-        </form>
+                <Button type="submit">Create Account</Button>
+            </Row>
+        </Form>
     )
 }
 
