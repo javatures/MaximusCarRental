@@ -4,18 +4,19 @@ import java.util.List;
 import java.util.stream.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.http.MediaType;
 
 import com.revature.oracles.maximuscarrental.repo.RenterRepo;
 import com.revature.oracles.maximuscarrental.models.Renter;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("renter")
 public class RenterController {
     @Autowired
@@ -33,7 +34,7 @@ public class RenterController {
         return renterRepo.findById(id).get();
     }
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping
     public Renter postRenter(@RequestBody Renter renter) {
         return renterRepo.save(renter);
     }

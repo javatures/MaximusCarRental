@@ -12,19 +12,14 @@ const RenterForm: FC<{}> = (): JSX.Element => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        let formData = new FormData();
-
-        formData.append("username", username);
-        formData.append("password", password);
-        formData.append("fname", fname);
-        formData.append("lname", lname);
-        formData.append("email", email);
-        formData.append("phone", phoneString);
+        let newRenter = {username: username, password: password, fname: fname, lname: lname, email: email, phoneString: phoneString};
+        let myJson = JSON.stringify(newRenter);
 
         var request = new XMLHttpRequest();
         request.open("POST", "http://localhost:8080/renter");
-        request.send(formData);
-        console.log(username, password);
+        request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        request.send(myJson);
     }
 
     return(
@@ -48,7 +43,7 @@ const RenterForm: FC<{}> = (): JSX.Element => {
                 <label htmlFor="phone">Phone Number</label>
                 <input type="phone" value={phoneString} onChange={(e) => setPhoneString(e.target.value)}/>
 
-                <input className="btn btn-primary" type="submit" value="Log In" />
+                <input className="btn btn-primary" type="submit" value="Create Account" />
             </div>
         </form>
     )
