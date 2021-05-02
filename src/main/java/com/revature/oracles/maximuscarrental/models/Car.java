@@ -9,6 +9,7 @@ import javax.persistence.Table;
 import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,6 +19,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,4 +40,11 @@ public class Car {
     @ManyToOne
     @JoinColumn
     private Renter renterId;
+
+    public Car(String make, String model, String year, String type) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+        this.type = type;
+    }
 }
