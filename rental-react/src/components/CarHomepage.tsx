@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import CarCard from './CarCard';
 
 interface Car {
