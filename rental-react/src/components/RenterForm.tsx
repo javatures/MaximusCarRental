@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Container';
+import Container from 'react-bootstrap/Container';
 
 const RenterForm: FC<{}> = (): JSX.Element => {
     const [username, setUsername] = React.useState("");
@@ -25,8 +25,10 @@ const RenterForm: FC<{}> = (): JSX.Element => {
     }
 
     return (
-        <Form onSubmit={handleSubmit}>
-            <Row>
+        <Container>
+            <Form onSubmit={handleSubmit}>
+                <h1>Create a new Account</h1>
+
                 <Form.Group controlId="username">
                     <Form.Label>Username</Form.Label>
                     <Form.Control type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
@@ -58,8 +60,8 @@ const RenterForm: FC<{}> = (): JSX.Element => {
                 </Form.Group>
 
                 <Button type="submit">Create Account</Button>
-            </Row>
-        </Form>
+            </Form>
+        </Container>
     )
 }
 
