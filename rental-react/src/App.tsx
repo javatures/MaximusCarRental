@@ -3,6 +3,7 @@ import { Switch, Route, Link } from "react-router-dom";
 import { Navbar, Nav, NavItem } from "react-bootstrap";
 import RenterForm from './components/RenterForm';
 import CarHomepage from './components/CarHomepage';
+import SigninForm from './components/SigninForm';
 
 function App() {
   return (
@@ -12,6 +13,9 @@ function App() {
           <Navbar.Brand as={Link} to="/">React-Bootstrap</Navbar.Brand>
           <Navbar.Collapse>
               <Nav className="mr-auto">
+                <NavItem>
+                  <Nav.Link as={Link} to="/login">Login</Nav.Link>
+                </NavItem>
                 <NavItem>
                   <Nav.Link as={Link} to="/newRenterAccount">Create New Account</Nav.Link>
                 </NavItem>
@@ -25,6 +29,9 @@ function App() {
 
       <div>
         <Switch>
+          <Route path="/login">
+            <SigninForm />
+          </Route>
           <Route path="/newRenterAccount">
             <RenterForm />
           </Route>

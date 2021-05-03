@@ -22,17 +22,21 @@ const CarHomepage: FC<{}> = (): JSX.Element => {
         })
     }, [])
 
-    console.log(cars[0]);
-
     let carCards = [];
-    for(let i = 0; i < cars.length/3; i++)
+    let newCols = [];
+    for(let i = 1; i <= cars.length; i++)
     {
-        let cols = [];
-        for(let j = 0*i; j < 3; j++)
+        newCols.push(<Col key={i-1}><CarCard key={i-1} car={cars[i-1]}/></Col>)
+        if(i % 3 === 0)
         {
-            cols.push(<Col><CarCard car={cars[j]}/></Col>)
+            carCards.push(<Row className="pb-2">{newCols}</Row>)
+            newCols = [];
         }
-        carCards.push(<Row>{cols}</Row>)
+    }
+
+    if(cars.length % 3 !== 0)
+    {
+        carCards.push(<Row className="pb-2">{newCols}</Row>)
     }
 
     return (
