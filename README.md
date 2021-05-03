@@ -16,4 +16,10 @@ yarn start
 ```
 Will be on port 3000
 
+# TO run tests
+- at root (same as starting Spring server)
+```bash
+gradle test
+```
+
 Maximus Car Rental is the future 
