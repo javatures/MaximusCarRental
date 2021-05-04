@@ -9,7 +9,7 @@ const AdminRow: FC<{}> = (): JSX.Element => {
     const [phoneString, setPhoneString] = React.useState("");
 
     return (
-        <div>
+        <div data-testid="adminrow">
             <ul>
                 <li>{userId}</li>
                 <li>{username}</li>

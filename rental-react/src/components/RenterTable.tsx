@@ -11,7 +11,7 @@ const RenterTable: FC<{}> = (): JSX.Element => {
     }, []);
     
     return (
-        <div>
+        <div data-testid="rentertable">
             <table>
                 <thead>
                     <td>User Id</td>

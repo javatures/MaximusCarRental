@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const NavBar = (): JSX.Element => {
 
     return (
-        <Nav defaultActiveKey="/index" as="ul">
+        <Nav defaultActiveKey="/index" as="ul" data-testid="navbar">
             <Nav.Item>Maximus</Nav.Item>
             <NavDropdown title={
                     <div className="pull-right">

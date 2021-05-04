@@ -48,7 +48,7 @@ const NewUserForm: FC<{}> = (): JSX.Element => {
     }
 
     return (
-        <Container>
+        <Container data-testid="newuserform">
             <Form onSubmit={handleSubmit}>
                 <h1>Create a new Account</h1>
 

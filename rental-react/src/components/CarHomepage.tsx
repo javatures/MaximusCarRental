@@ -40,7 +40,7 @@ const CarHomepage: FC<{}> = (): JSX.Element => {
     }
 
     return (
-        <Container>
+        <Container data-testid="carhomepage">
             {carCards}
         </Container>
     )
