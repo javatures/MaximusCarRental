@@ -17,6 +17,7 @@ Maximus Car Rental is the future
 - JDBC
 - User stories
 - AWS
+- Swagger
 
 ### Functionality
 - Login Authentication & Authorization
