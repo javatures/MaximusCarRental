@@ -45,9 +45,15 @@ yarn start
 Will be on port 3000
 
 ### To run tests
+- For backend:
 - at root (same as starting Spring server)
 ```bash
 gradle test
+```
+- For frontend:
+- in react-rental directory (same as starting React server)
+```bash
+npm test
 ```
 
 ### To view Swagger-UI
