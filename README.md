@@ -16,10 +16,13 @@ yarn start
 ```
 Will be on port 3000
 
-# TO run tests
+# To run tests
 - at root (same as starting Spring server)
 ```bash
 gradle test
 ```
+
+# To view Swagger-UI
+http://localhost:8080/swagger-ui/
 
 Maximus Car Rental is the future 
