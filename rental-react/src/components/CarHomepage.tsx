@@ -26,7 +26,7 @@ const CarHomepage: FC<{}> = (): JSX.Element => {
     let newCols = [];
     for(let i = 1; i <= cars.length; i++)
     {
-        newCols.push(<Col key={i-1}><CarCard key={i-1} car={cars[i-1]}/></Col>)
+        newCols.push(<Col><CarCard car={cars[i-1]}/></Col>)
         if(i % 3 === 0)
         {
             carCards.push(<Row className="pb-2">{newCols}</Row>)
