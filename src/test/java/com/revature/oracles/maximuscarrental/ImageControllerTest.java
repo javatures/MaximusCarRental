@@ -10,7 +10,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-public class RenterControllerTest extends MaximuscarrentalApplicationTests{
+public class ImageControllerTest extends MaximuscarrentalApplicationTests{
     @Autowired
     private WebApplicationContext webApplicationContext;
     
@@ -22,14 +22,14 @@ public class RenterControllerTest extends MaximuscarrentalApplicationTests{
     }
 
     @Test
-    public void allRenterTest() throws Exception {
-        mockMvc.perform(get("/renter")).andExpect(status().isOk());
+    public void allImageTest() throws Exception {
+        mockMvc.perform(get("/image")).andExpect(status().isOk());
     }
     
-    // Will un comment when create account button is complete
+    // Will un comment when complete
     // @Test
-    // public void oneRenterTest() throws Exception {
+    // public void oneImageTest() throws Exception {
     //     //Will fail if DB is empty
-    //     mockMvc.perform(get("/renter/1")).andExpect(status().isOk());
+    //     mockMvc.perform(get("/image/1")).andExpect(status().isOk());
     // }
 }

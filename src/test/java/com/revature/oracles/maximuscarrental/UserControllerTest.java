@@ -10,7 +10,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-public class AdminControllerTest extends MaximuscarrentalApplicationTests{
+public class UserControllerTest extends MaximuscarrentalApplicationTests{
     @Autowired
     private WebApplicationContext webApplicationContext;
     
@@ -22,14 +22,14 @@ public class AdminControllerTest extends MaximuscarrentalApplicationTests{
     }
 
     @Test
-    public void allAdminTest() throws Exception {
-        mockMvc.perform(get("/admin")).andExpect(status().isOk());
+    public void allUserTest() throws Exception {
+        mockMvc.perform(get("/users")).andExpect(status().isOk());
     }
     
-    // Will un comment when registering an admin is complete
+    // Will un comment when complete
     // @Test
-    // public void oneAdminTest() throws Exception {
+    // public void oneUserTest() throws Exception {
     //     //Will fail if DB is empty
-    //     mockMvc.perform(get("/admin/1")).andExpect(status().isOk());
+    //     mockMvc.perform(get("/users/1")).andExpect(status().isOk());
     // }
 }
