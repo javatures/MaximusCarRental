@@ -1,10 +1,12 @@
 import React from 'react';
-import { Switch, Route, Link, NavLink } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
 import { Navbar, Nav, NavItem } from "react-bootstrap";
 import NewUserForm from './components/NewUserForm';
 import CarHomepage from './components/CarHomepage';
 import SigninForm from './components/SigninForm';
 import ReservationForm from './components/ReservationForm'
+import AdminDashboard from './components/AdminDashboard';
+import NewCarForm from './components/NewCarForm';
 
 function App() {
   return (
@@ -26,6 +28,9 @@ function App() {
                 <NavItem>
                   <Nav.Link as={Link} to="/makeReservation">Reserve a Car</Nav.Link>
                 </NavItem>
+                <NavItem>
+                  <Nav.Link as={Link} to="/adminDashboard">Admin Dashboard</Nav.Link>
+                </NavItem>
               </Nav>
           </Navbar.Collapse>
         </Navbar>
@@ -45,6 +50,12 @@ function App() {
           <Route path="/makeReservation">
             <ReservationForm />
 
+          </Route>
+          <Route path="/adminDashboard">
+            <AdminDashboard />
+          </Route>
+          <Route path="/newCar">
+            <NewCarForm />
           </Route>
         </Switch>
       </div>
