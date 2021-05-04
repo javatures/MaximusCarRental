@@ -1,4 +1,4 @@
-interface Renter {
+interface User {
     id: number;
     username: string;
     password: string;
@@ -6,22 +6,23 @@ interface Renter {
     lname: string;
     email: string;
     phoneString: string;
+    admin: boolean;
 }
 
 var CurrentUser = (function () {
-    var renter: Renter;
+    var user: User;
 
-    var getRenter = function () {
-        return renter;    // Or pull this from cookie/localStorage
+    var getUser = function () {
+        return user;    // Or pull this from cookie/localStorage
     };
 
-    var setRenter = function (newRenter: Renter) {
-        renter = newRenter;
+    var setUser = function (newUser: User) {
+        user = newUser;
     };
 
     return {
-        getRenter: getRenter,
-        setRenter: setRenter
+        getUser: getUser,
+        setUser: setUser
     }
 
 })();

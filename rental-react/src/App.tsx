@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route, Link, NavLink } from "react-router-dom";
 import { Navbar, Nav, NavItem } from "react-bootstrap";
-import RenterForm from './components/RenterForm';
+import NewUserForm from './components/NewUserForm';
 import CarHomepage from './components/CarHomepage';
 import SigninForm from './components/SigninForm';
 import ReservationForm from './components/ReservationForm'
@@ -18,7 +18,7 @@ function App() {
                   <Nav.Link as={Link} to="/login">Login</Nav.Link>
                 </NavItem>
                 <NavItem>
-                  <Nav.Link as={Link} to="/newRenterAccount">Create New Account</Nav.Link>
+                  <Nav.Link as={Link} to="/newAccount">Create New Account</Nav.Link>
                 </NavItem>
                 <NavItem>
                   <Nav.Link as={Link} to="/cars">Browse Cars</Nav.Link>
@@ -36,8 +36,8 @@ function App() {
           <Route path="/login">
             <SigninForm />
           </Route>
-          <Route path="/newRenterAccount">
-            <RenterForm />
+          <Route path="/newAccount">
+            <NewUserForm />
           </Route>
           <Route path="/cars">
             <CarHomepage />

@@ -1,24 +1,47 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 
-const RenterForm: FC<{}> = (): JSX.Element => {
+interface User {
+    id: number;
+    username: string;
+    password: string;
+    fname: string;
+    lname: string;
+    email: string;
+    phoneString: string;
+    admin: boolean;
+}
+
+const NewUserForm: FC<{}> = (): JSX.Element => {
+    const [users, setUsers] = React.useState(Array<User>());
     const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
     const [fname, setFname] = React.useState("");
     const [lname, setLname] = React.useState("");
     const [email, setEmail] = React.useState("");
     const [phoneString, setPhoneString] = React.useState("");
+    const [admin, setAdmin] = React.useState(false);
+
+    useEffect(() => {
+        fetch('http://localhost:8080/users')
+        .then(response => response.json())
+        .then(json => {
+            setUsers(json);
+        })
+    }, [])
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        
+        //check users and see if username is unique
 
-        let newRenter = { username: username, password: password, fname: fname, lname: lname, email: email, phoneString: phoneString };
-        let myJson = JSON.stringify(newRenter);
+        let newUser = { username: username, password: password, fname: fname, lname: lname, email: email, phoneString: phoneString, admin: admin };
+        let myJson = JSON.stringify(newUser);
 
         var request = new XMLHttpRequest();
-        request.open("POST", "http://localhost:8080/renter");
+        request.open("POST", "http://localhost:8080/users");
         request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         request.setRequestHeader("Access-Control-Allow-Origin", "*");
         request.send(myJson);
@@ -59,10 +82,16 @@ const RenterForm: FC<{}> = (): JSX.Element => {
                     <Form.Control type="phone" value={phoneString} onChange={(e) => setPhoneString(e.target.value)} />
                 </Form.Group>
 
+                <Form.Group controlId="admin">
+                    <Form.Label className="mb-2">Admin Status</Form.Label>
+                    <Form.Check name="admin" type="radio" label="True" value="true" onChange={(e) => setAdmin(true)} />
+                    <Form.Check name="admin" type="radio" label="False" value="false" onChange={(e) => setAdmin(false)} />
+                </Form.Group>
+
                 <Button type="submit">Create Account</Button>
             </Form>
         </Container>
     )
 }
 
-export default RenterForm;
+export default NewUserForm;

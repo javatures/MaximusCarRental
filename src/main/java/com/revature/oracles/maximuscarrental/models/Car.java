@@ -39,7 +39,7 @@ public class Car {
     
     @ManyToOne
     @JoinColumn
-    private Renter renterId;
+    private User userId;
 
     public Car(String make, String model, String year, String type) {
         this.make = make;

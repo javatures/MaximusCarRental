@@ -3,7 +3,7 @@ import {Container, Form, Button} from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import CurrentUser from './CurrentUser';
 
-interface Renter {
+interface User {
     id: number;
     username: string;
     password: string;
@@ -11,34 +11,35 @@ interface Renter {
     lname: string;
     email: string;
     phoneString: string;
+    admin: boolean;
 }
 
 const SigninForm: FC<{}> = (): JSX.Element => {
     let history = useHistory();
-    const [renters, setRenters] = useState(Array<Renter>());
+    const [users, setUsers] = useState(Array<User>());
     const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        renters.forEach(renter => {
-            if(renter.username === username && renter.password === password)
+        users.forEach(user => {
+            if(user.username === username && user.password === password)
             {
-                CurrentUser.setRenter(renter);
-                console.log(CurrentUser.getRenter());
+                CurrentUser.setUser(user);
+                console.log(CurrentUser.getUser());
                 history.push("/cars");
             }
         });
-        console.log(renters);
+        console.log(users);
         console.log(username, password);
     }
 
     useEffect(() => {
-        fetch('http://localhost:8080/renter')
+        fetch('http://localhost:8080/users')
         .then(response => response.json())
         .then(json => {
-            setRenters(json);
+            setUsers(json);
         })
     }, [])
 
