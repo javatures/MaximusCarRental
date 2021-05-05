@@ -9,7 +9,7 @@ const Logout: FC<{ adminStatusChanged: Function}> = (props): JSX.Element => {
     CurrentUser.logout();
 
     return (
-        <Container>
+        <Container data-testid="logout">
             <h1>Logged Out</h1>
             <Button onClick={(e) => history.push("/login")}>Go Log Back In</Button>
         </Container>

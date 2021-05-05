@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const NavbarComp: FC<{isAdmin: boolean}> = (props): JSX.Element => {
 
     return(
-        <Navbar>
+        <Navbar data-testid="navbarcomp">
           <Navbar.Brand as={Link} to="/">MaximusCarRental</Navbar.Brand>
           <Navbar.Collapse>
               <Nav className="mr-auto">

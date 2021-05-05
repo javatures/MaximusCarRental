@@ -6,7 +6,7 @@ const LandingPage: FC<{}> = (): JSX.Element => {
     let history = useHistory();
 
     return (
-        <Container>
+        <Container data-testid="landingpage">
             <h1>Welcome to Maximus Car Rental</h1>
             <Accordion defaultActiveKey="0">
                 <Card>
