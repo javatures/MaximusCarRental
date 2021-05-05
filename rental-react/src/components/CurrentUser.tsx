@@ -24,10 +24,15 @@ var CurrentUser = (function () {
         return user.admin;
     };
 
+    var logout = function () {
+        user = {id: 0, username: "", password: "", fname: "", lname: "", email: "", phoneString: "", admin: false};
+    };
+
     return {
         getUser: getUser,
         setUser: setUser,
-        isAdmin: isAdmin
+        isAdmin: isAdmin,
+        logout: logout
     }
 
 })();

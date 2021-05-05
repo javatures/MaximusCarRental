@@ -20,6 +20,9 @@ const NavbarComp: FC<{isAdmin: boolean}> = (props): JSX.Element => {
                         <Nav.Link as={Link} to="/adminDashboard">Admin Dashboard</Nav.Link>
                     </NavItem>
                 }
+                <NavItem>
+                  <Nav.Link as={Link} to="/logout">Logout</Nav.Link>
+                </NavItem>
               </Nav>
           </Navbar.Collapse>
         </Navbar>

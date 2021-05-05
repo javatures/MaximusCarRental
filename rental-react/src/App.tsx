@@ -8,6 +8,8 @@ import AdminDashboard from './components/AdminDashboard';
 import NewCarForm from './components/NewCarForm';
 import CurrentUser from './components/CurrentUser';
 import NavbarComp from './components/NavbarComp';
+import LandingPage from './components/LandingPage';
+import Logout from './components/Logout';
 
 function App() {
   const [isCurrentUserAdmin, setIsCurrentUserAdmin] = useState(CurrentUser.isAdmin());
@@ -42,6 +44,12 @@ function App() {
           </Route>
           <Route path="/newCar">
             <NewCarForm />
+          </Route>
+          <Route path="/logout">
+            <Logout adminStatusChanged={adminStatusChanged} />
+          </Route>
+          <Route path="/">
+            <LandingPage />
           </Route>
         </Switch>
       </div>
