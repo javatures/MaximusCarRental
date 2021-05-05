@@ -10,7 +10,7 @@ interface User {
 }
 
 var CurrentUser = (function () {
-    var user: User;
+    var user: User = {id: 0, username: "", password: "", fname: "", lname: "", email: "", phoneString: "", admin: false};
 
     var getUser = function () {
         return user;    // Or pull this from cookie/localStorage
@@ -20,9 +20,14 @@ var CurrentUser = (function () {
         user = newUser;
     };
 
+    var isAdmin = function () {
+        return user.admin;
+    };
+
     return {
         getUser: getUser,
-        setUser: setUser
+        setUser: setUser,
+        isAdmin: isAdmin
     }
 
 })();

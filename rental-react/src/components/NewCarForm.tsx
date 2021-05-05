@@ -18,13 +18,13 @@ const NewCarForm: FC<{}> = (): JSX.Element => {
         let newCar = { make: make, model: model, year: year, type: type };
         let myJson = JSON.stringify(newCar);
 
-        var request = new XMLHttpRequest();
-        request.open("POST", "http://localhost:8080/car");
-        request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        request.setRequestHeader("Access-Control-Allow-Origin", "*");
-        request.send(myJson);
-
-        history.push("/adminDashboard");
+        fetch("http://localhost:8080/car", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: myJson
+        }).then(() => {history.push("/adminDashboard")})
     }
 
     return (

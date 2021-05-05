@@ -1,52 +1,41 @@
-import React from 'react';
-import { Switch, Route, Link } from "react-router-dom";
-import { Navbar, Nav, NavItem } from "react-bootstrap";
+import React, { useState } from 'react';
+import { Switch, Route} from "react-router-dom";
 import NewUserForm from './components/NewUserForm';
 import CarHomepage from './components/CarHomepage';
 import SigninForm from './components/SigninForm';
 import ReservationForm from './components/ReservationForm'
 import AdminDashboard from './components/AdminDashboard';
 import NewCarForm from './components/NewCarForm';
+import CurrentUser from './components/CurrentUser';
+import NavbarComp from './components/NavbarComp';
 
 function App() {
+  const [isCurrentUserAdmin, setIsCurrentUserAdmin] = useState(CurrentUser.isAdmin());
+
+  const adminStatusChanged = (val: boolean) => {
+    setIsCurrentUserAdmin(val);
+  }
+  console.log(isCurrentUserAdmin);
+
   return (
     <div>
       <div>
-        <Navbar>
-          <Navbar.Brand as={Link} to="/">React-Bootstrap</Navbar.Brand>
-          <Navbar.Collapse>
-              <Nav className="mr-auto">
-                <NavItem>
-                  <Nav.Link as={Link} to="/login">Login</Nav.Link>
-                </NavItem>
-                <NavItem>
-                  <Nav.Link as={Link} to="/cars">Browse Cars</Nav.Link>
-                </NavItem>
-                <NavItem>
-                  <Nav.Link as={Link} to="/makeReservation">Reserve a Car</Nav.Link>
-                </NavItem>
-                <NavItem>
-                  <Nav.Link as={Link} to="/adminDashboard">Admin Dashboard</Nav.Link>
-                </NavItem>
-              </Nav>
-          </Navbar.Collapse>
-        </Navbar>
+        <NavbarComp isAdmin={isCurrentUserAdmin}/>
       </div>
 
       <div>
         <Switch>
           <Route path="/login">
-            <SigninForm />
+            <SigninForm isAdmin={isCurrentUserAdmin} adminStatusChanged={adminStatusChanged}/>
           </Route>
           <Route path="/newAccount">
-            <NewUserForm />
+            <NewUserForm isAdmin={isCurrentUserAdmin} adminStatusChanged={adminStatusChanged}/>
           </Route>
           <Route path="/cars">
             <CarHomepage />
           </Route>
           <Route path="/makeReservation">
             <ReservationForm />
-
           </Route>
           <Route path="/adminDashboard">
             <AdminDashboard />

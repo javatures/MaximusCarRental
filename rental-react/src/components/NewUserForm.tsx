@@ -2,6 +2,7 @@ import React, { FC, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
+import { useHistory } from 'react-router';
 
 interface User {
     id: number;
@@ -14,7 +15,8 @@ interface User {
     admin: boolean;
 }
 
-const NewUserForm: FC<{}> = (): JSX.Element => {
+const NewUserForm: FC<{isAdmin: boolean, adminStatusChanged: Function}> = ( props ): JSX.Element => {
+    let history = useHistory();
     const [users, setUsers] = React.useState(Array<User>());
     const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
@@ -40,11 +42,17 @@ const NewUserForm: FC<{}> = (): JSX.Element => {
         let newUser = { username: username, password: password, fname: fname, lname: lname, email: email, phoneString: phoneString, admin: admin };
         let myJson = JSON.stringify(newUser);
 
-        var request = new XMLHttpRequest();
-        request.open("POST", "http://localhost:8080/users");
-        request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        request.setRequestHeader("Access-Control-Allow-Origin", "*");
-        request.send(myJson);
+        fetch("http://localhost:8080/users", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: myJson
+        }).then((response) => {
+            console.log(response);
+            props.adminStatusChanged(admin);
+            history.push("/makeReservation");
+        })
     }
 
     return (

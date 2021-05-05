@@ -14,12 +14,11 @@ interface User {
     admin: boolean;
 }
 
-const SigninForm: FC<{}> = (): JSX.Element => {
+const SigninForm: FC<{ isAdmin: boolean, adminStatusChanged: Function}> = ( props ): JSX.Element => {
     let history = useHistory();
     const [users, setUsers] = useState(Array<User>());
     const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
-    console.log("asdasd");
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -29,11 +28,10 @@ const SigninForm: FC<{}> = (): JSX.Element => {
             {
                 CurrentUser.setUser(user);
                 console.log(CurrentUser.getUser());
-                history.push("/cars");
+                props.adminStatusChanged(CurrentUser.isAdmin());
+                history.push("/makeReservation");
             }
         });
-        console.log(users);
-        console.log(username, password);
     }
 
     useEffect(() => {
