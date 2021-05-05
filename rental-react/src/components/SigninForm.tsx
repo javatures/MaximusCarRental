@@ -19,6 +19,7 @@ const SigninForm: FC<{}> = (): JSX.Element => {
     const [users, setUsers] = useState(Array<User>());
     const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
+    console.log("asdasd");
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
