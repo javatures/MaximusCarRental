@@ -28,7 +28,7 @@ const NewCarForm: FC<{}> = (): JSX.Element => {
     }
 
     return (
-        <Container>
+        <Container data-testid="newcarform">
             <Form onSubmit={handleSubmit}>
                 <h1>Add a New Rental Car</h1>
 

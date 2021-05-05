@@ -6,7 +6,7 @@ import ReservationForm from './ReservationForm';
 const NewReservationContainer: FC<{}> = (): JSX.Element =>
 {
     return(
-        <Container>
+        <Container data-testid="newreservationcontainer">
             <h1>Make a Reservation</h1>
             <ReservationForm />
         </Container>

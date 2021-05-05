@@ -13,7 +13,7 @@ const ReservationForm: FC<{}> = (): JSX.Element => {
 
 
     return (
-        <Form>
+        <Form data-testid="reservationform">
             <Row>
             <Col>
                 <Form.Group controlId="pickupdata">

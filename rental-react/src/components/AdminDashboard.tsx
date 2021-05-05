@@ -8,7 +8,7 @@ const AdminDashboard: FC<{}> = (): JSX.Element => {
     let history = useHistory();
 
     return (
-        <Container>
+        <Container data-testid="admindashboard">
             <AdminUserTable />
             <AdminCarTable />
             <Button onClick={(e) => history.push("/newCar")}>Add New Car</Button>

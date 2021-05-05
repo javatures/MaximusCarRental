@@ -13,7 +13,7 @@ interface Car {
 const CarCard: FC<{ car: Car }> = (props): JSX.Element => {
 
     return (
-        <Card key={props.car.id}>
+        <Card key={props.car.id} data-testid="carcard">
             <Card.Body>
                 <Card.Title>Car Number: {props.car.id}</Card.Title>
                 <Card.Text>
