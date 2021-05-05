@@ -20,9 +20,6 @@ function App() {
                   <Nav.Link as={Link} to="/login">Login</Nav.Link>
                 </NavItem>
                 <NavItem>
-                  <Nav.Link as={Link} to="/newAccount">Create New Account</Nav.Link>
-                </NavItem>
-                <NavItem>
                   <Nav.Link as={Link} to="/cars">Browse Cars</Nav.Link>
                 </NavItem>
                 <NavItem>

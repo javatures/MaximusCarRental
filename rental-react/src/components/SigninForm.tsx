@@ -59,7 +59,8 @@ const SigninForm: FC<{}> = (): JSX.Element => {
                     <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </Form.Group>
 
-                <Button type="submit">Login</Button>
+                <Button type="submit" className="mr-2">Login</Button>
+                <Button onClick={(e) => history.push("/newAccount") } >Create Account</Button>
             </Form>
         </Container>
     )
