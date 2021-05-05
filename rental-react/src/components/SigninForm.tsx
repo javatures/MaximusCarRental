@@ -44,7 +44,7 @@ const SigninForm: FC<{}> = (): JSX.Element => {
     }, [])
 
     return(
-        <Container data-testid="siginform">
+        <Container data-testid="signinform">
             <Form onSubmit={handleSubmit}>
                 <h1>Login</h1>
 
