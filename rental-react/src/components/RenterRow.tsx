@@ -30,7 +30,7 @@ const RenterRow: FC<{}> = (): JSX.Element => {
     }
 
     return (
-        <div>
+        <div data-testid="renterrow">
             <ul>
                 {buildLi}
             </ul>
