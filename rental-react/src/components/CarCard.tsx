@@ -1,4 +1,6 @@
-import { FC } from 'react';
+import React from 'react';
+import { FC, useState } from 'react';
+
 import { Button, Card } from 'react-bootstrap';
 
 interface Car {
@@ -10,18 +12,20 @@ interface Car {
     renterId: number;
 }
 
-const CarCard: FC<{ car: Car }> = (props): JSX.Element => {
+const CarCard: FC<{ car: Car , setCar: Function}> = (props): JSX.Element => {
+  
+
 
     return (
         <Card key={props.car.id} data-testid="carcard">
             <Card.Body>
                 <Card.Title>Car Number: {props.car.id}</Card.Title>
                 <Card.Text>
+                    Car Year: {props.car.year} <br />
                     Car Make: {props.car.make} <br />
                     Car Model: {props.car.model} <br />
                     Car Type: {props.car.type} <br />
-                    Car Year: {props.car.year} <br />
-                    <Button className="mt-2">Create Reservation</Button>
+                    <Button type="submit" onClick={props.setCar(props.car.id)} className="mt-2">Create Reservation</Button>
                 </Card.Text>
             </Card.Body>
         </Card>
@@ -29,3 +33,5 @@ const CarCard: FC<{ car: Car }> = (props): JSX.Element => {
 }
 
 export default CarCard;
+
+

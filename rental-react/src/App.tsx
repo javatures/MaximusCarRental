@@ -33,9 +33,9 @@ function App() {
           <Route path="/newAccount">
             <NewUserForm isAdmin={isCurrentUserAdmin} adminStatusChanged={adminStatusChanged}/>
           </Route>
-          <Route path="/cars">
+          {/* <Route path="/cars">
             <CarHomepage />
-          </Route>
+          </Route> */}
           <Route path="/makeReservation">
             <ReservationForm />
           </Route>

@@ -15,7 +15,7 @@ interface Car {
 }
 
 
-const DisplayAvailable: FC<{type: string}> = (props): JSX.Element =>{
+const DisplayAvailable: FC<{type: string , setCar: Function}> = (props): JSX.Element =>{
     const [cars, setCars] = useState(Array<Car>());
 
     useEffect(() => {
@@ -32,7 +32,7 @@ const DisplayAvailable: FC<{type: string}> = (props): JSX.Element =>{
     {   
         let car = cars[i-1];
         if(props.type === car.type ){
-            newCols.push(<Col key={i-1}><CarCard key={i-1} car={cars[i-1]}/></Col>)
+            newCols.push(<Col key={i-1}><CarCard setCar={props.setCar} key={i-1} car={cars[i-1]}/></Col>)
             if(i % 3 === 0)
             {
                 carCards.push(<Row className="pb-2">{newCols}</Row>)

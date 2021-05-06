@@ -1,5 +1,4 @@
 import React, { FC, useEffect, useState, Component } from 'react';
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Container';
 import DisplayAvailable from './DisplayAvailableCars';
@@ -11,13 +10,26 @@ import 'react-tabs/style/react-tabs.css';
 const ReservationForm: FC<{}> = (): JSX.Element => {
     const [pickupdate, setPickupdate] = React.useState("");
     const[dropoffdate, setDropoffdate] = React.useState("");
-    const[cartype, setCartype] = React.useState("");
+    const[carid, setCar] = React.useState("");
 
 
+    const handleSubmit = (e: React.FormEvent) =>{
+        console.log("sumbitted");
+
+        e.preventDefault();
+        let user = CurrentUser.getUser();
+        let pickup = pickupdate;
+        let dropoff = dropoffdate;
+        console.log(carid);
+        console.log(user);
+
+
+    }
 
 
     return (
-        <Form data-testid="reservationform">
+        <div>
+        <Form data-testid="reservationform" onSubmit={handleSubmit}>
             <Row>
             
                 <Form.Group controlId="pickupdata">
@@ -30,47 +42,36 @@ const ReservationForm: FC<{}> = (): JSX.Element => {
                     <Form.Control required type="date" value={dropoffdate} onChange={(e) => setDropoffdate(e.target.value)}/>
                 </Form.Group>
             </Row>
-            <Row>
-                {/* <Form.Group id="cartype">
-                    <Form.Label>Select Vehicle Type</Form.Label>
-                    <Form.Control as="select" onChange={(e) => setCartype(e.target.value)}>
-                        <option value="Select">Select...</option>
-                        <option value="Economy">Economy</option>
-                        <option value="Luxury">Luxury</option>
-                        <option value="Sport">Sport</option>
-                        <option value="Towing and Hauling">Towing and Hauling</option>
-                    </Form.Control>
-                </Form.Group> */}
-            </Row>
-            <Row>
+        <Row>
             <Tabs>
-                    <TabList>
-                        <Tab>All</Tab>
-                        <Tab>Ecomony</Tab>
-                        <Tab>Luxury</Tab>
-                        <Tab>Sport</Tab>
-                        <Tab>Towing and Hauling</Tab>
-                    </TabList>
-                    <TabPanel>
-                        <h3>All Vehicles</h3>
-                        <CarHomepage />
-                    </TabPanel>
-                    <TabPanel>
-                        <DisplayAvailable type="Economy" />
-                    </TabPanel>
-                    <TabPanel>
-                        <DisplayAvailable type="Luxury" />
-                    </TabPanel>
-                    <TabPanel>
-                        <DisplayAvailable type="Sport" />
-                    </TabPanel>
-                    <TabPanel>
-                        <DisplayAvailable type="Towing and Hauling" />
-                    </TabPanel>
-                </Tabs>
-
-            </Row>
+                <TabList>
+                    <Tab>All</Tab>
+                    <Tab>Ecomony</Tab>
+                    <Tab>Luxury</Tab>
+                    <Tab>Sport</Tab>
+                    <Tab>Towing and Hauling</Tab>
+                </TabList>
+                <TabPanel>
+                    <h3>All Vehicles</h3>
+                    <CarHomepage setCar={setCar} />
+                </TabPanel>
+                <TabPanel>
+                    <DisplayAvailable type="Economy" setCar={setCar}/>
+                </TabPanel>
+                <TabPanel>
+                    <DisplayAvailable type="Luxury" setCar={setCar}/>
+                </TabPanel>
+                <TabPanel>
+                    <DisplayAvailable type="Sport" setCar={setCar}/>
+                </TabPanel>
+                <TabPanel>
+                    <DisplayAvailable type="Towing and Hauling" setCar={setCar}/>
+                </TabPanel>
+            </Tabs>
+        
+        </Row>
         </Form>
+        </div>
     )
 }
 export default ReservationForm;

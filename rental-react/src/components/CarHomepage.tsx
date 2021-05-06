@@ -11,7 +11,7 @@ interface Car {
     renterId: number;
 }
 
-const CarHomepage: FC<{}> = (): JSX.Element => {
+const CarHomepage: FC<{setCar: Function}> = (props): JSX.Element => {
     const [cars, setCars] = useState(Array<Car>());
 
     useEffect(() => {
@@ -26,7 +26,7 @@ const CarHomepage: FC<{}> = (): JSX.Element => {
     let newCols = [];
     for(let i = 1; i <= cars.length; i++)
     {
-        newCols.push(<Col><CarCard car={cars[i-1]}/></Col>)
+        newCols.push(<Col><CarCard setCar={props.setCar} car={cars[i-1]}/></Col>)
         if(i % 3 === 0)
         {
             carCards.push(<Row className="pb-2">{newCols}</Row>)
