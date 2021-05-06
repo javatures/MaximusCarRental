@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Button, Card } from 'react-bootstrap';
+import CarImages from './CarImages';
 
 interface Car {
     id: number;
@@ -14,6 +15,7 @@ const CarCard: FC<{ car: Car }> = (props): JSX.Element => {
 
     return (
         <Card key={props.car.id} data-testid="carcard">
+            <CarImages key={'images' + props.car.id} car={props.car}/>
             <Card.Body>
                 <Card.Title>Car Number: {props.car.id}</Card.Title>
                 <Card.Text>
