@@ -15,7 +15,7 @@ interface User {
     admin: boolean;
 }
 
-const NewUserForm: FC<{isAdmin: boolean, adminStatusChanged: Function}> = ( props ): JSX.Element => {
+const NewUserForm: FC<{ adminStatusChanged: Function, userLoggedIn: Function}> = ( props ): JSX.Element => {
     let history = useHistory();
     const [users, setUsers] = React.useState(Array<User>());
     const [username, setUsername] = React.useState("");
@@ -51,6 +51,7 @@ const NewUserForm: FC<{isAdmin: boolean, adminStatusChanged: Function}> = ( prop
         }).then((response) => {
             console.log(response);
             props.adminStatusChanged(admin);
+            props.userLoggedIn(true);
             history.push("/makeReservation");
         })
     }

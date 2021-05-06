@@ -1,9 +1,7 @@
 import { FC } from 'react';
 import { Container, Button, Accordion, Card } from 'react-bootstrap';
-import { useHistory } from 'react-router';
 
 const LandingPage: FC<{}> = (): JSX.Element => {
-    let history = useHistory();
 
     return (
         <Container data-testid="landingpage">

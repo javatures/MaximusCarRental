@@ -10,28 +10,33 @@ import CurrentUser from './components/CurrentUser';
 import NavbarComp from './components/NavbarComp';
 import LandingPage from './components/LandingPage';
 import Logout from './components/Logout';
+import RenterDashboard from './components/RenterDashboard';
 
 function App() {
   const [isCurrentUserAdmin, setIsCurrentUserAdmin] = useState(CurrentUser.isAdmin());
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const adminStatusChanged = (val: boolean) => {
     setIsCurrentUserAdmin(val);
   }
-  console.log(isCurrentUserAdmin);
+
+  const userLoggedIn = (val: boolean) => {
+    setLoggedIn(val);
+  }
 
   return (
     <div>
       <div>
-        <NavbarComp isAdmin={isCurrentUserAdmin}/>
+        <NavbarComp isAdmin={isCurrentUserAdmin} isLoggedIn={loggedIn}/>
       </div>
 
       <div>
         <Switch>
           <Route path="/login">
-            <SigninForm isAdmin={isCurrentUserAdmin} adminStatusChanged={adminStatusChanged}/>
+            <SigninForm adminStatusChanged={adminStatusChanged} userLoggedIn={userLoggedIn} />
           </Route>
           <Route path="/newAccount">
-            <NewUserForm isAdmin={isCurrentUserAdmin} adminStatusChanged={adminStatusChanged}/>
+            <NewUserForm adminStatusChanged={adminStatusChanged} userLoggedIn={userLoggedIn}/>
           </Route>
           {/* <Route path="/cars">
             <CarHomepage />
@@ -45,8 +50,11 @@ function App() {
           <Route path="/newCar">
             <NewCarForm />
           </Route>
+          <Route path="/renterDashboard">
+            <RenterDashboard />
+          </Route>
           <Route path="/logout">
-            <Logout adminStatusChanged={adminStatusChanged} />
+            <Logout adminStatusChanged={adminStatusChanged} userLoggedIn={userLoggedIn} />
           </Route>
           <Route path="/">
             <LandingPage />
