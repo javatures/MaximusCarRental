@@ -17,10 +17,10 @@ import com.revature.oracles.maximuscarrental.models.Reservation;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("reservation")
+@RequestMapping("reservations")
 public class ReservationController {
     @Autowired
-    private ReservationRepo reservationRepo;
+    ReservationRepo reservationRepo;
 
     @GetMapping
     public List<Reservation> getAll() {
@@ -35,7 +35,7 @@ public class ReservationController {
     }
 
     @PostMapping
-    public Reservation postRenter(@RequestBody Reservation reservation) {
+    public Reservation postReservation(@RequestBody Reservation reservation) {
         return reservationRepo.save(reservation);
     }
 }

@@ -36,7 +36,7 @@ const ReservationTable: FC<{}> = (): JSX.Element => {
     console.log(CurrentUser.getUser());
 
     useEffect(() => {
-        fetch('http://localhost:8080/reservation')
+        fetch('http://localhost:8080/reservations')
         .then(response => response.json())
         .then(json => {
             setReservations(json);
@@ -71,7 +71,6 @@ const ReservationTable: FC<{}> = (): JSX.Element => {
                         <td>{reservation.dropOff}</td>
                         <td>{reservation.car.make}</td>
                         <td>{reservation.car.model}</td>
-                        <td>{reservation.car}</td>
                         {CurrentUser.isAdmin() && 
                             <td>{reservation.user.id}</td>
                         }

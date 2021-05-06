@@ -1,7 +1,5 @@
 package com.revature.oracles.maximuscarrental.models;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +15,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "reservation")
+@Table(name = "reservations")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -28,10 +26,10 @@ public class Reservation {
     private int id;
 
     @Column
-    private LocalDateTime pickUp;
+    private String pickUp;
 
     @Column
-    private LocalDateTime dropOff;
+    private String dropOff;
     
     @ManyToOne
     @JoinColumn
@@ -41,7 +39,7 @@ public class Reservation {
     @JoinColumn
     private User user;
 
-    public Reservation(LocalDateTime pickUp, LocalDateTime dropOff, Car car, User user) {
+    public Reservation(String pickUp, String dropOff, Car car, User user) {
       this.pickUp = pickUp;
       this.dropOff = dropOff;
       this.car = car;
