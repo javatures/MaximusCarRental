@@ -33,6 +33,8 @@ interface Reservation {
 const ReservationTable: FC<{}> = (): JSX.Element => {
     const [reservations, setReservations] = useState(Array<Reservation>());
 
+    console.log(CurrentUser.getUser());
+
     useEffect(() => {
         fetch('http://localhost:8080/reservation')
         .then(response => response.json())
@@ -40,12 +42,12 @@ const ReservationTable: FC<{}> = (): JSX.Element => {
             setReservations(json);
             if(!CurrentUser.isAdmin())
             {
-                setReservations(r => reservations.filter(reservation => reservation.user.id === CurrentUser.getUser().id));
+                setReservations(reservations.filter(reservation => reservation.user.id === CurrentUser.getUser().id));
             }
         })
 
         
-    }, [reservations])
+    }, [])
 
     return (
         <Table striped bordered hover data-testid="adminusertable">

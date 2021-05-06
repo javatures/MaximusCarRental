@@ -1,5 +1,5 @@
 import React from 'react';
-import { FC, useState } from 'react';
+import { FC } from 'react';
 
 import { Button, Card } from 'react-bootstrap';
 
@@ -13,8 +13,6 @@ interface Car {
 }
 
 const CarCard: FC<{ car: Car , setCar: Function}> = (props): JSX.Element => {
-  
-
 
     return (
         <Card key={props.car.id} data-testid="carcard">

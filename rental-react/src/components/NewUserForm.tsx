@@ -1,9 +1,11 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import { useHistory } from 'react-router';
+import CurrentUser from './CurrentUser';
 
+/*
 interface User {
     id: number;
     username: string;
@@ -14,10 +16,11 @@ interface User {
     phoneString: string;
     admin: boolean;
 }
+*/
 
 const NewUserForm: FC<{ adminStatusChanged: Function, userLoggedIn: Function}> = ( props ): JSX.Element => {
     let history = useHistory();
-    const [users, setUsers] = React.useState(Array<User>());
+    //const [users, setUsers] = React.useState(Array<User>());
     const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
     const [fname, setFname] = React.useState("");
@@ -26,6 +29,7 @@ const NewUserForm: FC<{ adminStatusChanged: Function, userLoggedIn: Function}> =
     const [phoneString, setPhoneString] = React.useState("");
     const [admin, setAdmin] = React.useState(false);
 
+    /*
     useEffect(() => {
         fetch('http://localhost:8080/users')
         .then(response => response.json())
@@ -33,6 +37,7 @@ const NewUserForm: FC<{ adminStatusChanged: Function, userLoggedIn: Function}> =
             setUsers(json);
         })
     }, [])
+    */
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -48,8 +53,9 @@ const NewUserForm: FC<{ adminStatusChanged: Function, userLoggedIn: Function}> =
                 'Content-Type': 'application/json'
             },
             body: myJson
-        }).then((response) => {
-            console.log(response);
+        }).then((response) =>  response.json()).then((res) => {
+            console.log(res);
+            CurrentUser.setUser(res);
             props.adminStatusChanged(admin);
             props.userLoggedIn(true);
             history.push("/makeReservation");
