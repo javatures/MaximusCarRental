@@ -14,28 +14,49 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.oracles.maximuscarrental.repo.ReservationRepo;
 import com.revature.oracles.maximuscarrental.models.Reservation;
+import com.revature.oracles.maximuscarrental.models.Car;
+import com.revature.oracles.maximuscarrental.models.User;
+import com.revature.oracles.maximuscarrental.service.ReservationService;
+import com.revature.oracles.maximuscarrental.service.CarService;
+import com.revature.oracles.maximuscarrental.service.UserService;
 
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("reservation")
 public class ReservationController {
     @Autowired
-    private ReservationRepo reservationRepo;
+    private ReservationService reservationService;
+
+    @Autowired
+    private CarService carService;
+
+    @Autowired
+    private UserService userService;
 
     @GetMapping
     public List<Reservation> getAll() {
-        List<Reservation> reservations = StreamSupport.stream(reservationRepo.findAll().spliterator(), false)
-            .collect(Collectors.toList());
-        return reservations;
+        return reservationService.getAll();
     }
 
     @GetMapping("/{id}")
-    public Reservation getReservation(@PathVariable(name = "id") int id) {
-        return reservationRepo.findById(id).get();
+    public Reservation getReservation(@PathVariable int id) {
+        return reservationService.findById(id);
+    }
+
+    @GetMapping("/car/{carId}")
+    public List<Reservation> getReservationsByCarId(@PathVariable int carId) {
+      Car car = carService.findById(carId);
+      return reservationService.findByCar(car);
+    }
+
+    @GetMapping("/user/{userId}")
+    public List<Reservation> getReservationsByUserId(@PathVariable int userId) {
+      User user = userService.findById(userId);
+      return reservationService.findByUser(user);
     }
 
     @PostMapping
-    public Reservation postRenter(@RequestBody Reservation reservation) {
-        return reservationRepo.save(reservation);
+    public Reservation add(@RequestBody Reservation reservation) {
+        return reservationService.add(reservation);
     }
 }

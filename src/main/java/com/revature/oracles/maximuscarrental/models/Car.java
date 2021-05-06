@@ -34,12 +34,12 @@ public class Car {
     @Column
     private String year;
 
-    @Column
+    @Column(name = "category")
     private String type; // i.e. luxury vehicle
     
-    @ManyToOne
-    @JoinColumn
-    private User userId;
+    // @ManyToOne
+    // @JoinColumn
+    // private User userId;
 
     public Car(String make, String model, String year, String type) {
         this.make = make;
