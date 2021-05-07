@@ -40,18 +40,14 @@ const ReservationTable: FC<{}> = (): JSX.Element => {
         .then(response => response.json())
         .then(json => {
             setReservations(json);
-            if(!CurrentUser.isAdmin())
-            {
-                setReservations(reservations.filter(reservation => reservation.user.id === CurrentUser.getUser().id));
-            }
         })
 
         
     }, [])
 
     return (
-        <Table striped bordered hover data-testid="adminusertable">
-            <thead>
+        <Table striped bordered hover data-testid="adminusertable" variant="primary">
+           <thead>
                 <tr>
                     <th>Reservation ID</th>
                     <th>Pick Up Date</th>

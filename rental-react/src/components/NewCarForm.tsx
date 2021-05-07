@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import { useHistory } from 'react-router';
+import './gStyle.css';
 
 const NewCarForm: FC<{}> = (): JSX.Element => {
     let history = useHistory();
@@ -28,7 +29,7 @@ const NewCarForm: FC<{}> = (): JSX.Element => {
     }
 
     return (
-        <Container data-testid="newcarform">
+        <Container data-testid="newcarform" className="lding">
             <Form onSubmit={handleSubmit}>
                 <h1>Add a New Rental Car</h1>
 
@@ -58,7 +59,7 @@ const NewCarForm: FC<{}> = (): JSX.Element => {
                     </Form.Control>
                 </Form.Group>
 
-                <Button type="submit">Add Car</Button>
+                <Button type="submit" variant="success">Add Car</Button>
             </Form>
         </Container>
     )

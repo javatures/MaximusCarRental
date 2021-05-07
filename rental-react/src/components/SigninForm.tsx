@@ -2,6 +2,7 @@ import React, { FC, useState, useEffect } from 'react';
 import {Container, Form, Button} from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import CurrentUser from './CurrentUser';
+import './gStyle.css';
 
 interface User {
     id: number;
@@ -44,7 +45,7 @@ const SigninForm: FC<{ adminStatusChanged: Function, userLoggedIn: Function}> = 
     }, [])
 
     return(
-        <Container data-testid="signinform">
+        <Container data-testid="signinform" className="lding">
             <Form onSubmit={handleSubmit}>
                 <h1>Login</h1>
 
@@ -58,8 +59,8 @@ const SigninForm: FC<{ adminStatusChanged: Function, userLoggedIn: Function}> = 
                     <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </Form.Group>
 
-                <Button type="submit" className="mr-2">Login</Button>
-                <Button onClick={(e) => history.push("/newAccount") } >Create Account</Button>
+                <Button type="submit" className="mr-2" variant="success">Login</Button>
+                <Button onClick={(e) => history.push("/newAccount") } variant="secondary">Create Account</Button>
             </Form>
         </Container>
     )

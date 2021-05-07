@@ -6,6 +6,7 @@ import CurrentUser from './CurrentUser';
 import CarHomepage from './CarHomepage';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import './gStyle.css'
 
 interface Car {
     id: number;
@@ -52,7 +53,7 @@ const ReservationForm: FC<{}> = (): JSX.Element => {
     }
 
     return (
-        <div>
+        <div className="newForm">
             <Form data-testid="reservationform" onSubmit={handleSubmit}>
                 <Row>
 
@@ -67,7 +68,7 @@ const ReservationForm: FC<{}> = (): JSX.Element => {
                     </Form.Group>
                 </Row>
                 <Row>
-                    <Tabs>
+                    <Tabs className="tStyle">
                         <TabList>
                             <Tab>All</Tab>
                             <Tab>Ecomony</Tab>

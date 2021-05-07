@@ -22,7 +22,7 @@ const AdminCarTable: FC<{}> = (): JSX.Element => {
     }, [])
 
     return (
-        <Table striped bordered hover data-testid="admincartable">
+        <Table striped bordered hover data-testid="admincartable" variant="success">
             <thead>
                 <tr>
                     <th>Car Id</th>

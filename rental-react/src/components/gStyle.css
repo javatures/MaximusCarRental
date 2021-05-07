@@ -1,0 +1,78 @@
+.dStyle{
+    background-color: #11354a;
+    margin-bottom: 40px;
+}
+
+.navColor{
+    color: #fafafa !important;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px 20px;
+    border: 1px solid #fafafa;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.bgColor{
+    background-color: #909090;
+    height: 1000px;
+}
+
+.lding{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #11354a;
+    color: white;
+    padding-bottom: 20px;
+    padding-top: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.card{
+    color: black;
+    background-color:white;
+    border: 1px solid black;
+}
+
+.newForm{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #11354a;
+    margin-left: 5%;
+    margin-right: 5%;
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.tStyle{
+    padding-top: 10px;
+}
+
+.dash{
+    background-color: #11354a;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.logout{
+    background-color: #11354a;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center;
+    width: 500px;
+    color: white;
+}
+
+.newUser{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #11354a;
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+}

@@ -63,7 +63,7 @@ const NewUserForm: FC<{ adminStatusChanged: Function, userLoggedIn: Function}> =
     }
 
     return (
-        <Container data-testid="newuserform">
+        <Container data-testid="newuserform" className="newUser">
             <Form onSubmit={handleSubmit}>
                 <h1>Create a new Account</h1>
 

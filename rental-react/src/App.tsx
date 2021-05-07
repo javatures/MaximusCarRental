@@ -10,6 +10,7 @@ import NavbarComp from './components/NavbarComp';
 import LandingPage from './components/LandingPage';
 import Logout from './components/Logout';
 import RenterDashboard from './components/RenterDashboard';
+import './components/gStyle.css';
 
 function App() {
   const [isCurrentUserAdmin, setIsCurrentUserAdmin] = useState(CurrentUser.isAdmin());
@@ -28,7 +29,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="bgColor">
       <div>
         <NavbarComp isAdmin={isCurrentUserAdmin} isLoggedIn={loggedIn}/>
       </div>

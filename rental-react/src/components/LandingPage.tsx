@@ -1,13 +1,14 @@
 import { FC } from 'react';
 import { Container, Button, Accordion, Card } from 'react-bootstrap';
+import './gStyle.css';
 
 const LandingPage: FC<{}> = (): JSX.Element => {
 
     return (
-        <Container data-testid="landingpage">
+        <Container data-testid="landingpage" className="lding">
             <h1>Welcome to Maximus Car Rental</h1>
             <Accordion defaultActiveKey="0">
-                <Card>
+                <Card className="card">
                     <Card.Header>
                         <Accordion.Toggle as={Button} variant="link" eventKey="0">
                             What is Maximus Car Rental?

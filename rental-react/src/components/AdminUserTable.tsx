@@ -24,7 +24,7 @@ const AdminUserTable: FC<{}> = (): JSX.Element => {
     }, [])
 
     return (
-        <Table striped bordered hover data-testid="adminusertable">
+        <Table striped bordered hover data-testid="adminusertable" variant="warning">
             <thead>
                 <tr>
                     <th>User Id</th>

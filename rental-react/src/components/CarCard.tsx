@@ -12,7 +12,12 @@ interface Car {
     renterId: number;
 }
 
+
 const CarCard: FC<{ car: Car , setCar: Function}> = (props): JSX.Element => {
+
+    function clicked(selectedCar:Car){
+        props.setCar(selectedCar);
+    }
 
     return (
         <Card key={props.car.id} data-testid="carcard">
@@ -23,7 +28,7 @@ const CarCard: FC<{ car: Car , setCar: Function}> = (props): JSX.Element => {
                     Car Make: {props.car.make} <br />
                     Car Model: {props.car.model} <br />
                     Car Type: {props.car.type} <br />
-                    <Button type="submit" onClick={props.setCar(props.car)} className="mt-2">Create Reservation</Button>
+                    <Button type="submit" onClick={(e) => clicked(props.car)} className="mt-2">Create Reservation</Button>
                 </Card.Text>
             </Card.Body>
         </Card>
