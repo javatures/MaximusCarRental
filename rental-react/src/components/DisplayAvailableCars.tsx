@@ -1,8 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import CarHomepage from './CarHomepage';
 import CarCard from './CarCard';
 
 interface Car {

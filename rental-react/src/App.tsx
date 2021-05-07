@@ -21,6 +21,10 @@ function App() {
 
   const userLoggedIn = (val: boolean) => {
     setLoggedIn(val);
+    if(!val)
+    {
+      CurrentUser.logout();
+    }
   }
 
   return (
