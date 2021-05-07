@@ -13,6 +13,10 @@ interface Car {
 }
 
 const CarCard: FC<{ car: Car , setCar: Function}> = (props): JSX.Element => {
+    
+        function clicked(selectedCar: Car) {
+        props.setCar(selectedCar);
+    }
 
     return (
         <Card key={props.car.id} data-testid="carcard">
