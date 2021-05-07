@@ -44,8 +44,10 @@ public class User {
     @Column
     private String phoneString;
 
-    @OneToMany(mappedBy = "userId")
-    private Set<Car> carsRented;
+    // @OneToMany(mappedBy = "userId")
+    // private Set<Car> carsRented;
+    // @OneToMany(mappedBy = "user")
+    // private List<Reservation> reservations;
 
     @Column
     private boolean admin;

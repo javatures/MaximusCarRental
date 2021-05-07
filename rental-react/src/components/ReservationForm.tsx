@@ -13,7 +13,7 @@ interface Car {
     model: string;
     type: string;
     year: string;
-    renterId: number;
+    //renterId: number;
 }
 interface User {
     id: number;
@@ -31,8 +31,10 @@ const ReservationForm: FC<{}> = (): JSX.Element => {
     const [dropoffdate, setDropoffdate] = React.useState("");
     const [car, setCar] = useState({});
 
-    const updateCar = (car: Car) => {
-        setCar(car);
+    const updateCar = (selectedCar: Car) => {
+        console.log("Setting car to car # " + selectedCar.id);
+        setCar(selectedCar);
+        console.log(car);
     }
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -70,26 +72,26 @@ const ReservationForm: FC<{}> = (): JSX.Element => {
                     <Tabs>
                         <TabList>
                             <Tab>All</Tab>
-                            <Tab>Ecomony</Tab>
+                            <Tab>Economy</Tab>
                             <Tab>Luxury</Tab>
                             <Tab>Sport</Tab>
                             <Tab>Towing and Hauling</Tab>
                         </TabList>
                         <TabPanel>
                             <h3>All Vehicles</h3>
-                            <CarHomepage setCar={updateCar} />
+                            <CarHomepage selectCar={updateCar} />
                         </TabPanel>
                         <TabPanel>
-                            <DisplayAvailable type="Economy" setCar={updateCar} />
+                            <DisplayAvailable type="Economy" selectCar={updateCar} />
                         </TabPanel>
                         <TabPanel>
-                            <DisplayAvailable type="Luxury" setCar={updateCar} />
+                            <DisplayAvailable type="Luxury" selectCar={updateCar} />
                         </TabPanel>
                         <TabPanel>
-                            <DisplayAvailable type="Sport" setCar={updateCar} />
+                            <DisplayAvailable type="Sport" selectCar={updateCar} />
                         </TabPanel>
                         <TabPanel>
-                            <DisplayAvailable type="Towing and Hauling" setCar={updateCar} />
+                            <DisplayAvailable type="Towing and Hauling" selectCar={updateCar} />
                         </TabPanel>
                     </Tabs>
 

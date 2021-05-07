@@ -63,7 +63,8 @@ const LandingPage: FC<{}> = (): JSX.Element => {
                     </Card.Header>
                     <Accordion.Collapse eventKey="3">
                         <Card.Body>
-                            Max Lee: <a href="https://github.com/MaxL-Rev">Github link</a><br />
+                            Max Lee: <a href="https://github.com/MaxL-Rev">Github</a><br />
+                            Diana Vu: <a href="https://github.com/diana-vu-revature">Github</a><br />
                         </Card.Body>
                     </Accordion.Collapse>
                 </Card>

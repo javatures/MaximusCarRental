@@ -9,12 +9,16 @@ const NavbarComp: FC<{ isAdmin: boolean, isLoggedIn: boolean }> = (props): JSX.E
       <Navbar.Brand as={Link} to="/">MaximusCarRental</Navbar.Brand>
       <Navbar.Collapse>
         <Nav className="mr-auto">
-          <NavItem>
-            <Nav.Link as={Link} to="/login">Login</Nav.Link>
-          </NavItem>
-          <NavItem>
-            <Nav.Link as={Link} to="/makeReservation">Reserve a Car</Nav.Link>
-          </NavItem>
+          {!props.isLoggedIn &&
+            <NavItem>
+              <Nav.Link as={Link} to="/login">Login</Nav.Link>
+            </NavItem>
+          }
+          {(props.isLoggedIn && !props.isAdmin) &&
+            <NavItem>
+              <Nav.Link as={Link} to="/makeReservation">Reserve a Car</Nav.Link>
+            </NavItem>
+          }
           {(props.isLoggedIn && !props.isAdmin) &&
             <NavItem>
               <Nav.Link as={Link} to="/renterDashboard">Renter Dashboard</Nav.Link>
@@ -25,9 +29,11 @@ const NavbarComp: FC<{ isAdmin: boolean, isLoggedIn: boolean }> = (props): JSX.E
               <Nav.Link as={Link} to="/adminDashboard">Admin Dashboard</Nav.Link>
             </NavItem>
           }
-          <NavItem>
-            <Nav.Link as={Link} to="/logout">Logout</Nav.Link>
-          </NavItem>
+          {props.isLoggedIn &&
+            <NavItem>
+              <Nav.Link as={Link} to="/logout">Logout</Nav.Link>
+            </NavItem>
+          }
         </Nav>
       </Navbar.Collapse>
     </Navbar>

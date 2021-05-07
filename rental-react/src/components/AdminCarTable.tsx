@@ -7,7 +7,7 @@ interface Car {
     model: string;
     type: string;
     year: string;
-    renterId: number;
+    // renterId: number;
 }
 
 const AdminCarTable: FC<{}> = (): JSX.Element => {
@@ -30,7 +30,7 @@ const AdminCarTable: FC<{}> = (): JSX.Element => {
                     <th>Model</th>
                     <th>Type</th>
                     <th>Year</th>
-                    <th>Rented By</th>
+                    {/* <th>Rented By</th> */}
                 </tr>
             </thead>
             <tbody>
@@ -41,7 +41,7 @@ const AdminCarTable: FC<{}> = (): JSX.Element => {
                         <td>{car.model}</td>
                         <td>{car.type}</td>
                         <td>{car.year}</td>
-                        <td>{car.renterId}</td>
+                        {/* <td>{car.renterId}</td> */}
                     </tr>
                 ))}
             </tbody>

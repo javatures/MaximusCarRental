@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "image")
+@Table(name = "images")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -27,7 +27,7 @@ public class Image {
     @Column
     private String link;
 
-    @Column
+    @Column(name = "alt")
     private String description;
     
     @ManyToOne

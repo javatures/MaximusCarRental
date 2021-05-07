@@ -30,7 +30,11 @@ const SigninForm: FC<{ adminStatusChanged: Function, userLoggedIn: Function}> = 
                 console.log(CurrentUser.getUser());
                 props.adminStatusChanged(CurrentUser.isAdmin());
                 props.userLoggedIn(true);
-                history.push("/makeReservation");
+                if(!CurrentUser.isAdmin()) {
+                    history.push("/makeReservation");
+                } else {
+                    history.push("/adminDashboard");
+                }
             }
         });
     }

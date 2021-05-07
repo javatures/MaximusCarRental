@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import CurrentUser from './CurrentUser';
 
@@ -8,7 +8,6 @@ interface Car {
     model: string;
     type: string;
     year: string;
-    renterId: number;
 }
 
 interface User {
@@ -24,8 +23,8 @@ interface User {
 
 interface Reservation {
     id: number;
-    pickUp: Date;
-    dropOff: Date;
+    pickUp: string;
+    dropOff: string;
     car: Car;
     user: User;
 }
@@ -40,9 +39,15 @@ const ReservationTable: FC<{}> = (): JSX.Element => {
         .then(response => response.json())
         .then(json => {
             setReservations(json);
+            console.log(json);
             if(!CurrentUser.isAdmin())
             {
-                setReservations(reservations.filter(reservation => reservation.user.id === CurrentUser.getUser().id));
+                let userId = CurrentUser.getUser().id;
+
+                let allReservations: Array<Reservation> = json;
+                let userReservations = allReservations.filter(reservation => reservation.user.id == CurrentUser.getUser().id)
+
+                setReservations(userReservations);
             }
         })
 
